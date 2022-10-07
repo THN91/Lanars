@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 20px 0 50px 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 645px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    width: 10px;
+    margin: 5px;
+    padding: 25px;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+}
