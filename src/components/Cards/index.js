@@ -42,8 +42,8 @@ function Cards() {
   const openCard = (cardId) => {
     if (selected.length < MAX_SELECTED_CARD) {
       const currentCard = cards[cardId];
-      cards[cardId].isOpen = true;
-      cards[cardId].active = true;
+      currentCard.isOpen = true;
+      currentCard.active = true;
       setCards(cards);
       setSelected([...selected, { id: cardId, num: currentCard.num }]);
     }
