@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
+
 import Card from '../Card';
 import {generateCardList} from '../helpers/index';
-import './styles.css';
+import {MAX_SELECTED_CARD} from "../../constants/constants";
 
-const MAX_SELECTED_CARD = 2;
+import './styles.css';
 
 function Cards() {
     const [cards, setCards] = useState({});

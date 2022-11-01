@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import {bool, shape, number, func} from 'prop-types';
+
 import './styles.css';
 
 function Card(props) {
