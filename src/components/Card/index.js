@@ -10,7 +10,7 @@ function Card(props) {
     return (
         <div
             onClick={() => !isOpen && onClick(id)}
-            className={classNames('card', {show: isOpen, hide: isOpen, active})}
+            className={classNames('card', {show: isOpen, active})}
         >
             <span className={classNames({textHide: !isOpen})}>{num}</span>
         </div>
