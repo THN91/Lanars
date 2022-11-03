@@ -6,12 +6,12 @@ import './styles.css';
 
 function Card(props) {
     const {data, onClick} = props;
-    const {num, isOpen, active, id} = data;
+    const {num, isOpen, active, id, guessed} = data;
 
     return (
         <div
             onClick={() => !isOpen && onClick(id)}
-            className={classNames('card', {show: isOpen, active})}
+            className={classNames('card', {show: guessed, active})}
         >
             <span className={classNames({textHide: !isOpen})}>{num}</span>
         </div>

@@ -22,6 +22,6 @@ export const generateCardList = () => shuffle(generatePrimeNumber()
     .reduce((acc, item, index) => ({
         ...acc,
         [index]: {
-            id: index, num: item, isOpen: true, active: false,
+            id: index, num: item, isOpen: true, active: false, guessed: false,
         },
     }), {});
