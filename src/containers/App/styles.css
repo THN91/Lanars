@@ -1,3 +1,9 @@
+:root {
+    --gray-ish: #CDCDCD;
+    --almost-black: #0A0A0C;
+    --flaming-red-orange: #ED5517;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;

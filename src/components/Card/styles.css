@@ -7,20 +7,22 @@
     width: 10px;
     margin: 5px;
     padding: 20px 25px;
-    border: 1px solid #cdcdcd;
+    border: 1px solid var(--gray-ish);
     border-radius: 8px;
 }
 
 .card:hover {
-    box-shadow: 2px 2px 5px #cdcdcd;
+    box-shadow: 2px 2px 5px var(--gray-ish);
 }
 
 .show {
-    border-color: #0a0a0a;
+    border-color: var(--almost-black);
+    cursor: default;
 }
 
 .active {
-    border-color: #ed5517;
+    border-color: var(--flaming-red-orange);
+    cursor: default;
 }
 
 .textHide {
