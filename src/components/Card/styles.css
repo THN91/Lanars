@@ -17,14 +17,20 @@
 
 .show {
     border-color: var(--almost-black);
-    cursor: default;
 }
 
 .active {
     border-color: var(--flaming-red-orange);
-    cursor: default;
 }
 
 .textHide {
     opacity: 0;
+}
+
+.disable {
+    cursor: default;
+}
+
+.disable:hover {
+    box-shadow: none;
 }
