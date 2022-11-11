@@ -1,28 +1,36 @@
 .card {
     display: flex;
     justify-content: center;
+    align-items: center;
     cursor: pointer;
     font-size: 24px;
-    font-weight: 600;
-    width: 10px;
-    margin: 5px;
+    width: 28px;
+    height: 62px;
     padding: 20px 25px;
-    border: 1px solid #cdcdcd;
+    border: 1px solid var(--gray-ish);
     border-radius: 8px;
 }
 
 .card:hover {
-    box-shadow: 2px 2px 5px #cdcdcd;
+    box-shadow: 2px 2px 5px var(--gray-ish);
 }
 
 .show {
-    border-color: #0a0a0a;
+    border-color: var(--almost-black);
 }
 
 .active {
-    border-color: #ed5517;
+    border-color: var(--flaming-red-orange);
 }
 
 .textHide {
     opacity: 0;
+}
+
+.disable {
+    cursor: default;
+}
+
+.disable:hover {
+    box-shadow: none;
 }

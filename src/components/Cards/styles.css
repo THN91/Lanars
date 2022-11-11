@@ -2,7 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 645px;
+    width: 800px;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
 }
 
 

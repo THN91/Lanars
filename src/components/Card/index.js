@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import classNames from 'classnames';
 import {bool, shape, number, func} from 'prop-types';
 
@@ -6,12 +6,17 @@ import './styles.css';
 
 function Card(props) {
     const {data, onClick} = props;
-    const {num, isOpen, active, id} = data;
+    const {num, isOpen, active, id, guessed} = data;
+    const click = useCallback(()=> {
+        if(!isOpen) {
+            onClick(id)
+        }
+    }, [id, isOpen, onClick])
 
     return (
         <div
-            onClick={() => !isOpen && onClick(id)}
-            className={classNames('card', {show: isOpen, active})}
+            onClick={click}
+            className={classNames('card', {show: guessed, active, disable: isOpen})}
         >
             <span className={classNames({textHide: !isOpen})}>{num}</span>
         </div>

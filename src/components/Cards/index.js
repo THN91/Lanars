@@ -31,6 +31,8 @@ function Cards() {
                 if (selected[0].num === selected[1].num) {
                     cards[firstId].active = false;
                     cards[secondId].active = false;
+                    cards[firstId].guessed = true;
+                    cards[secondId].guessed = true;
                 } else {
                     cards[firstId].active = false;
                     cards[firstId].isOpen = false;
@@ -40,7 +42,7 @@ function Cards() {
                 setCards(cards);
                 setSelected([]);
             }
-        }, 800);
+        }, 1000);
     }, [cards, selected]);
 
     const openCard = (cardId) => {
