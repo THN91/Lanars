@@ -3,8 +3,9 @@ import classNames from 'classnames';
 import {bool, shape, number, func} from 'prop-types';
 
 import './styles.css';
+import {ICardPropsType} from "../types";
 
-function Card(props) {
+function Card(props: ICardPropsType) {
     const {data, onClick} = props;
     const {num, isOpen, active, id, guessed} = data;
     const click = useCallback(()=> {

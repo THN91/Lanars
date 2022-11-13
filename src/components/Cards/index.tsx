@@ -7,19 +7,20 @@ import {MAX_SELECTED_CARD} from "../../constants/constants";
 import './styles.css';
 
 function Cards() {
-    const [cards, setCards] = useState({});
-    const [selected, setSelected] = useState([]);
+    const [cards, setCards] = useState<Record<string, ICardType>>({});
+    const [selected, setSelected] = useState<Array<ISelectedType>>([]);
 
     useEffect(() => {
         setCards(generateCardList())
         setTimeout(() => {
-            setCards((cards) => {
-                return {
-                    ...Object.values(cards).map((item) => ({
+            setCards((cards: Record<string, ICardType>) => {
+                return Object.values(cards).reduce((acc: object, item: ICardType, index: number) => ({
+                    ...acc,
+                    [index]: {
                         ...item,
-                        isOpen: false,
-                    }))
-                }
+                        isOpen: false
+                    }
+                }), {})
             })
         }, 5000);
     }, []);
@@ -45,9 +46,9 @@ function Cards() {
         }, 1000);
     }, [cards, selected]);
 
-    const openCard = (cardId) => {
+    const openCard = (cardId: number) => {
         if (selected.length < MAX_SELECTED_CARD) {
-            const currentCard = cards[cardId];
+            const currentCard: ICardType = cards[cardId];
             currentCard.isOpen = true;
             currentCard.active = true;
             setCards(cards);
@@ -57,7 +58,11 @@ function Cards() {
 
     return (
         <div className="container">
-            {Object.values(cards).map((card) => <Card key={card.id} data={card} onClick={openCard}/>)}
+            {Object.values(cards).map((card: ICardType) => <Card
+                key={card.id}
+                data={card}
+                onClick={openCard}
+            />)}
         </div>
     );
 }
