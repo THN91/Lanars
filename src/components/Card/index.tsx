@@ -7,12 +7,8 @@ import {ICardPropsType} from "../types";
 
 function Card(props: ICardPropsType) {
     const {data, onClick} = props;
-    const {num, isOpen, active, id, guessed} = data;
-    const click = useCallback(()=> {
-        if(!isOpen) {
-            onClick(id)
-        }
-    }, [id, isOpen, onClick])
+    const {id, num, isOpen, active, guessed} = data;
+    const click = useCallback(() => !isOpen && onClick(id), [id, isOpen, onClick])
 
     return (
         <div
