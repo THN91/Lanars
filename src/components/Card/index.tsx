@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import classNames from 'classnames';
-import {bool, shape, number, func} from 'prop-types';
+import {bool, func, number, shape} from 'prop-types';
 
 import './styles.css';
 import {ICardPropsType} from "../types";

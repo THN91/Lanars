@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 
 import Card from '../Card';
-import {generateCardList} from '../helpers/index';
+import {generateCardList} from '../helpers';
 import {MAX_SELECTED_CARD} from "../../constants/constants";
+import {ICardType, ISelectedType} from "../types";
 
 import './styles.css';
 
