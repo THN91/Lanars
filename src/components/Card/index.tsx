@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import {bool, func, number, shape} from 'prop-types';
 
 import './styles.css';
-import {ICardPropsType} from "../types";
+import {ICardPropsType} from '../types';
 
 function Card(props: ICardPropsType) {
     const {data, onClick} = props;
