@@ -5,7 +5,7 @@ import Cards from '../../components/Cards';
 
 import './styles.css';
 
-function App() {
+function App(): JSX.Element {
     return (
         <div className={classNames('wrapper')}>
             <h1 className={classNames('title')}>Mahjong</h1>

@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import './styles.css';
 import {ICardPropsType} from '../types';
 
-function Card(props: ICardPropsType) {
+function Card(props: ICardPropsType): JSX.Element {
     const {data, onClick} = props;
     const {id, num, isOpen, active, guessed} = data;
-    const click = useCallback(() => !isOpen && onClick(id), [id, isOpen, onClick])
+    const click = useCallback((): boolean | void => !isOpen && onClick(id), [id, isOpen, onClick])
 
     return (
         <div
