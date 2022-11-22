@@ -1,31 +1,34 @@
 import React, {useEffect, useState} from 'react';
 
 import Card from '../Card';
-import {generateCardList} from '../helpers/index';
-import {MAX_SELECTED_CARD} from "../../constants/constants";
+import {generateCardList} from '../helpers';
+import {MAX_SELECTED_CARD} from '../../constants/constants';
+import {ICardType, ISelectedType} from '../types';
 
 import './styles.css';
 
-function Cards() {
-    const [cards, setCards] = useState({});
-    const [selected, setSelected] = useState([]);
+function Cards(): JSX.Element {
+    const [cards, setCards] = useState<Record<number, ICardType>>({});
+    const [selected, setSelected] = useState<Array<ISelectedType>>([]);
 
-    useEffect(() => {
+    useEffect((): void => {
         setCards(generateCardList())
-        setTimeout(() => {
-            setCards((cards) => {
-                return {
-                    ...Object.values(cards).map((item) => ({
+        setTimeout((): void => {
+            setCards((cards: Record<number, ICardType>): { [key: number]: ICardType } => {
+                return Object.values(cards).reduce(
+                    (acc: object, item: ICardType, index: number): object => ({
+                    ...acc,
+                    [index]: {
                         ...item,
-                        isOpen: false,
-                    }))
-                }
+                        isOpen: false
+                    }
+                }), {})
             })
         }, 5000);
     }, []);
 
-    useEffect(() => {
-        setTimeout(() => {
+    useEffect((): void => {
+        setTimeout((): void => {
             if (selected.length === MAX_SELECTED_CARD) {
                 const [{id: firstId}, {id: secondId}] = selected;
                 if (selected[0].num === selected[1].num) {
@@ -45,9 +48,9 @@ function Cards() {
         }, 1000);
     }, [cards, selected]);
 
-    const openCard = (cardId) => {
+    const openCard = (cardId: number): void => {
         if (selected.length < MAX_SELECTED_CARD) {
-            const currentCard = cards[cardId];
+            const currentCard: ICardType = cards[cardId];
             currentCard.isOpen = true;
             currentCard.active = true;
             setCards(cards);
@@ -57,7 +60,11 @@ function Cards() {
 
     return (
         <div className="container">
-            {Object.values(cards).map((card) => <Card key={card.id} data={card} onClick={openCard}/>)}
+            {Object.values(cards).map((card: ICardType) => <Card
+                key={card.id}
+                data={card}
+                onClick={openCard}
+            />)}
         </div>
     );
 }
